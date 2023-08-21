@@ -1,0 +1,53 @@
+*{
+    margin:0px;
+}
+
+body{
+    width:100%;
+    background:#000928;
+}
+
+.padre{
+  width:319px;
+  height:380px;
+  position:relative;
+}
+
+#personaje{
+    width:45px;
+    height:45px;
+    border:;
+    background:;
+    position:absolute;
+    bottom:52px;
+    left:123px;
+}
+
+img{
+  width:100%;
+}
+
+button{
+    width:48%;
+    height:100px;
+    background:#000928;
+    border:none;
+}
+
+.b2{
+  margin-left:;
+}
+
+.bala{
+  transform:rotate(-90deg);
+  width:45px;
+  position:absolute;
+  top:280px;
+}
+
+.enemigo{
+  width:45px;
+  height: 45px;
+  position: absolute;
+  top: 0px;
+}
