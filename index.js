@@ -1,5 +1,6 @@
 function onLoad(){
   setInterval(moverBala, 10)
+  enemigo()
 }
 
 let posicionPer=123
@@ -70,6 +71,7 @@ function limite(){
 
 let bala = ""
 let tope = 280
+let posicionDeBala = ""
 
 function proyectil(){
   bala= document.createElement("img")
@@ -77,6 +79,9 @@ function proyectil(){
   bala.src="image/proyectil.png"
   document.body.appendChild(bala)
   bala.style.left=posicionPer+"px"
+  
+  posicionDeBala = posicionPer
+  
 }
 
 function moverBala(){
@@ -93,5 +98,34 @@ function moverBala(){
   }else{
     tope-=10
     bala.style.top=tope+"px"
+  }
+  inpacto()
+  
+}
+
+
+let bot = 0
+let posicionBot=""
+
+function enemigo(){
+  bot = document.createElement("img")
+  bot.setAttribute("class", "enemigo")
+  bot.src="image/enemigo.png"
+  document.body.appendChild(bot)
+  posicionDeBot()
+}
+
+function posicionDeBot(){
+  posicionBot=Math.floor(Math.random()*280)
+  bot.style.left=posicionBot+"px"
+}
+
+function inpacto(){
+  if( (posicionBot-15<posicionDeBala) && (posicionBot+15>posicionDeBala) ){
+    if(tope==40){
+      document.body.removeChild(bot)
+      tope=0
+      enemigo()
+    }
   }
 }
