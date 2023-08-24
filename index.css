@@ -29,9 +29,10 @@ img{
 
 button{
     width:48%;
-    height:100px;
+    height:150px;
     background:#000928;
-    border:none;
+    border:solid 1px;
+    margin:2px;
 }
 
 .b2{
@@ -49,5 +50,19 @@ button{
   width:45px;
   height: 45px;
   position: absolute;
-  top: 0px;
+  top:0px;
+}
+
+p{
+  width: 20px;
+  height: 20px;
+  border: solid red;
+  border-radius:10px 0px 0px 10px;
+  display: inline-block;
+  position: absolute;
+  top: 170px;
+  right: 0px;
+  text-align: center;
+  line-height: center;
+  color: white;
 }

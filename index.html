@@ -13,13 +13,19 @@
 
 
 </head>
-<body onload="onLoad()">
+<body onload="onLoad()" onbeforeunload="saludar()">
+  
+  <script>
+    function saludar(){
+      alert("hola")
+    }
+  </script>
   
   <div class="padre">
     <div id="personaje"><img src="image/player.png"></div>
   
   </div>
-  
+  <p id="puntos"></p>
   <div>
     <button id="bt1" class="b1"
       onclick="clickIzquierdo()" 
