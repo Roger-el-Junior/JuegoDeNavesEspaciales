@@ -1,20 +1,23 @@
+
+
 function onLoad() {
+
   setInterval(moverBala, 1)
   enemigo()
-  //setInterval(evalua, 1)
+
   setInterval(ataque, 100)
+  document.getElementById("caja").style.display = "none"
+  
+  document.getElementById("contenedor").style.display="block"
+
 }
+
 let puntos = 0
 
 let posicionPer = 123
 
-let velosidad = 10
-
 let derecha = 0
 let izquierda = 0
-
-let des = 0
-let as = 0
 
 function clickDerecho() {
   posicionPer++
@@ -30,9 +33,7 @@ function clickIzquierdo() {
   let personaje = document.getElementById('personaje')
   personaje.style.left = posicionPer+"px"
 
-
 }
-
 
 function moverDerecha() {
   function mover() {
@@ -42,7 +43,7 @@ function moverDerecha() {
 
     limite()
   }
-  derecha = setInterval(mover, velosidad)
+  derecha = setInterval(mover, 10)
 }
 
 function moverIzquierda() {
@@ -52,9 +53,8 @@ function moverIzquierda() {
     personaje.style.left = posicionPer+"px"
     limite()
   }
-  izquierda = setInterval(mover, velosidad)
+  izquierda = setInterval(mover, 10)
 }
-
 
 function detenerIzquierda() {
   clearInterval(izquierda)
@@ -64,7 +64,6 @@ function detenerDerecha() {
   clearInterval(derecha)
 }
 
-
 function limite() {
   if (posicionPer == 1) {
     posicionPer = 2
@@ -73,13 +72,9 @@ function limite() {
   }
 }
 
-
 let bala = ""
 let tope = 280
 let posicionDeBala = ""
-
-
-
 
 function proyectil() {
   bala = document.createElement("img")
@@ -88,29 +83,32 @@ function proyectil() {
   document.body.appendChild(bala)
   bala.style.left = posicionPer+"px"
 
-
-  let sonido = new Audio()
-  sonido.src = "/storage/emulated/0/Music/MyAudioEditor/disparo(2).mp3"
-  //console.log(sonidoDeBala.play())
-  sonido.volume = 0.3
-  sonido.play()
-
+  son()
 
   posicionDeBala = posicionPer
 
 }
 
+
+function son() {
+  let sonido = new Audio()
+  sonido.src = "sonido/disparo(2).mp3"
+
+  sonido.volume = 0.1
+  return sonido.play()
+}
+
+
 function moverBala() {
 
   if (tope == 0) {
     tope = 280
-    //sonidoDeBala.pause()
-    console.log("hola")
+
     document.body.removeChild(bala)
 
   } else if (tope == 280) {
     proyectil()
-    //sonidoDeBala.play()
+
     bala.style.top = tope+"px"
     tope -= 10
 
@@ -119,9 +117,8 @@ function moverBala() {
     bala.style.top = tope+"px"
   }
   inpacto()
-  //console.log(tope)
-}
 
+}
 
 let bot = 0
 let posicionBot = ""
@@ -143,28 +140,17 @@ function posicionDeBot() {
 function ataque() {
   posicionAtaque += 1
   bot.style.top = posicionAtaque+"px"
-  // console.log(posicionAtaque)
-  // console.log(posicionAtaque)
-  // des+=1
-}
 
+}
 
 function inpacto() {
   if ((posicionBot-15 < posicionDeBala) && (posicionBot+15 > posicionDeBala)) {
-    
 
     if ((tope-10 < posicionAtaque) && (tope+10 > posicionAtaque)) {
 
-
-      let sonido2 = new Audio()
-      sonido2.src = "/storage/emulated/0/Music/MyAudioEditor/explota.mp3"
-      //console.log(sonidoDeBala.play())
-
-      sonido2.play()
-
+     sonido()
       bot.src = "image/explota.png"
       tope = 0
-
 
       function eliminar() {
         if (n == 3) {
@@ -191,29 +177,21 @@ function inpacto() {
       m = setInterval(eliminar, 50)
 
       aggPuntos()
-
-
     }
   }
-
 
   function aggPuntos() {
     puntos += 1
     let x = document.getElementById("puntos")
     x.innerHTML = puntos
-
-
-
   }
 }
 
-//evalua tope y posicionAtaque
+function sonido() {
+   let sonido2 = new Audio()
+      sonido2.src = "sonido/explota.mp3"
 
-/*
 
-if( (tope-10<posicionAtaque) && (tope+10>posicionAtaque) ){
+      sonido2.play()
+
 }
-
-*/
-
-function sonido() {}

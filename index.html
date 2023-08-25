@@ -13,32 +13,40 @@
 
 
 </head>
-<body onload="onLoad()" onbeforeunload="saludar()">
-  
-  <script>
-    function saludar(){
-      alert("hola")
-    }
-  </script>
-  
-  <div class="padre">
-    <div id="personaje"><img src="image/player.png"></div>
-  
+<body onchange="sal()">
+
+  <div id="caja">
+    <h1 class="inicio">
+      Comensar Juego
+    </h1>
+    <p onclick="onLoad()">
+      PLAY
+    </p>
   </div>
-  <p id="puntos"></p>
-  <div>
-    <button id="bt1" class="b1"
-      onclick="clickIzquierdo()" 
-      ontouchstart="moverIzquierda()" ontouchend="detenerIzquierda()">
-        
-    </button>
-    
-    <button id="bt2" class="b2" 
-      onclick="clickDerecho()"
-      ontouchstart="moverDerecha()" ontouchend="detenerDerecha()">
-        
+  <p id="hola" onclick="sal()">
+    hols
+  </p>
+  <div class="contenedor" id="contenedor">
+    <div class="padre">
+      <div id="personaje">
+        <img src="image/player.png">
+      </div>
+
+    </div>
+    <p id="puntos"></p>
+    <div>
+      <button id="bt1" class="b1"
+        onclick="clickIzquierdo()"
+        ontouchstart="moverIzquierda()" ontouchend="detenerIzquierda()">
+
+      </button>
+
+      <button id="bt2" class="b2"
+        onclick="clickDerecho()"
+        ontouchstart="moverDerecha()" ontouchend="detenerDerecha()">
+
       </button>
     </div>
-
-  </body>
+  </div>
+</body>
 </html>
